@@ -1,9 +1,16 @@
 from funcInoyatov import inoyatov
+from functionilyas import ilyas
 from funkost import kostin
 
 print(inoyatov(25,5))
 print(kostin(3,7))
-from functionilyas import ilyas
 
 print(inoyatov(25,5))
 print(ilyas(3,4))
+
+@app.get("/c2")
+def get_ilyas(x: float, y: float):
+    return {"result": ilyas(x, y)}
+@app.post("/c2")
+def post_ilyas(data: TwoNumbers):
+    return {"result": ilyas(data.x, data.y)}
