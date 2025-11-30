@@ -1,9 +1,9 @@
 from funcInoyatov import inoyatov
 from functionilyas import ilyas
-from funkost import kostin
+from funkost import konstantin
 
 print(inoyatov(25,5))
-print(kostin(3,7))
+print(konstantin(3,7))
 
 print(inoyatov(25,5))
 print(ilyas(3,4))
