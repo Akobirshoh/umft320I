@@ -14,3 +14,10 @@ def get_ilyas(x: float, y: float):
 @app.post("/c2")
 def post_ilyas(data: TwoNumbers):
     return {"result": ilyas(data.x, data.y)}
+
+@app.get("/konstantin")
+def get_konstantin(x: float, y: float):
+    return {"result": konstantin(x, y)}
+@app.post("/konstantin")
+def post_konstantin(data: TwoNumbers):
+    return {"result": konstantin(data.x, data.y)}
