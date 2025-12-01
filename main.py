@@ -1,6 +1,19 @@
+from fastapi import FastAPI
+from pydantic import BaseModel
 from funcInoyatov import inoyatov
 from functionilyas import ilyas
-from funkost import konstantin
+from funckost import konstantin
+
+class TwoNumbers(BaseModel):
+    x: float
+    y: float
+
+app = FastAPI( title="ASKOSH", version="1.0.0",
+description="AKOSH",
+docs_url="/docs",
+redoc_url="/redoc",
+#debug=settings.DEBUG, 
+)
 
 print(inoyatov(25,5))
 print(konstantin(3,7))
