@@ -1,4 +1,6 @@
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from funcInoyatov import inoyatov
 from functionilyas import ilyas
 from funckost import kostin
@@ -22,6 +24,14 @@ redoc_url="/redoc",
 #debug=settings.DEBUG, 
 )
 
+# Serve static frontend files under `/static` and serve index at `/`
+app.mount("/static", StaticFiles(directory="frontend"), name="static")
+
+
+@app.get("/")
+def root():
+    return FileResponse("frontend/index.html")
+
 
 @app.get("/c2")
 def get_ilyas(x: float, y: float):
@@ -36,5 +46,13 @@ def get_inoyatov(x: float, y: float ):
 @app.post("/inoyatov")
 def post_inoyatov(data: TwoNumbers):
     return {"result": inoyatov(data.x, data.y)}
+
+@app.get("/konst")
+def get_konstantin(x: float, y: float):
+    return {"result": kostin(x, y)}
+@app.post("/konst")
+def post_konstantin(data: TwoNumbers):
+    return {"result": kostin(data.x, data.y)}
+
 
 

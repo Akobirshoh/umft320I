@@ -1,0 +1,10 @@
+*{box-sizing:border-box;font-family:Segoe UI, Roboto, Arial, sans-serif}
+body{background:#f3f6fb;color:#111;margin:0;padding:20px}
+main{max-width:900px;margin:0 auto}
+h1{margin:0 0 18px}
+.card{background:#fff;border-radius:8px;padding:16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,0.06)}
+label{display:inline-block;margin-right:8px}
+.actions{margin-top:8px}
+button{margin-right:6px;padding:8px 12px;border-radius:6px;border:1px solid #ccc;background:#f7f9fc}
+.result{background:#f8f9ff;border:1px solid #e6e9f2;padding:8px;border-radius:6px;min-height:36px}
+footer{margin-top:10px;font-size:14px;color:#555}
