@@ -12,7 +12,7 @@ class TwoNumbers(BaseModel):
     y: float
 
 print(inoyatov(25,5))
-print(kostin(3,7))
+print(konstantin(3,7))
 
 print(inoyatov(25,5))
 print(ilyas(3,4))
