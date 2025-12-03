@@ -6,6 +6,7 @@ from functionilyas import ilyas
 from funckost import kostin
 from pydantic import BaseModel
 from proekt320ShakirjanovXasan import p1
+import funcSoliyev as s
 
 
 
@@ -14,7 +15,7 @@ class TwoNumbers(BaseModel):
     y: float
 
 print(inoyatov(25,5))
-print(konstantin(3,7))
+print(kostin(3,7))
 print(p1(2,3))
 print(inoyatov(25,5))
 print(ilyas(3,4))
@@ -56,3 +57,11 @@ def get_p1(x: float, y: float):
 @app.post("/Shakirjanov")
 def post_p1(data: TwoNumbers):
     return {"result": p1(data.x,data.y)}
+
+@app.get("/soliyev")
+def get_soliyev(x: float, y: float):
+    return {"result": s.func_soliyev(x, y)}
+
+@app.post("/soliyev")
+def post_soliyev(data: TwoNumbers):
+    return {"result": s.func_soliyev(data.x, data.y)}
