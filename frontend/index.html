@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>UMFT320I — Demo</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <main>
+    <h1>UMFT320I — демо фронтенд</h1>
+
+    <section class="card">
+      <h2>Гипотенуза (Ilyas)</h2>
+      <label>x <input id="ilyas-x" type="number" step="any" value="3"></label>
+      <label>y <input id="ilyas-y" type="number" step="any" value="4"></label>
+      <div class="actions">
+        <button id="ilyas-get">GET /c2</button>
+        <button id="ilyas-post">POST /c2</button>
+      </div>
+      <pre id="ilyas-result" class="result">—</pre>
+    </section>
+
+    <section class="card">
+      <h2>Деление (Inoyatov)</h2>
+      <label>x <input id="ino-x" type="number" step="any" value="25"></label>
+      <label>y <input id="ino-y" type="number" step="any" value="5"></label>
+      <div class="actions">
+        <button id="ino-get">GET /inoyatov</button>
+        <button id="ino-post">POST /inoyatov</button>
+      </div>
+      <pre id="ino-result" class="result">—</pre>
+    </section>
+
+    <section class="card">
+      <h2>Сравнение (Kostin)</h2>
+      <label>x <input id="kost-x" type="number" step="any" value="3"></label>
+      <label>y <input id="kost-y" type="number" step="any" value="7"></label>
+      <div class="actions">
+        <button id="kost-get">GET /konst</button>
+        <button id="kost-post">POST /konst</button>
+      </div>
+      <pre id="kost-result" class="result">—</pre>
+    </section>
+
+    <footer>
+      <p>API docs: <a href="/docs" target="_blank">/docs</a></p>
+    </footer>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

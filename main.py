@@ -1,4 +1,6 @@
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from funcInoyatov import inoyatov
 from functionilyas import ilyas
 from funckost import kostin
@@ -23,6 +25,14 @@ docs_url="/docs",
 redoc_url="/redoc",
 #debug=settings.DEBUG, 
 )
+
+# Serve static frontend files under `/static` and serve index at `/`
+app.mount("/static", StaticFiles(directory="frontend"), name="static")
+
+
+@app.get("/")
+def root():
+    return FileResponse("frontend/index.html")
 
 
 @app.get("/c2")
