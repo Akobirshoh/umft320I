@@ -1,16 +1,19 @@
 async function requestGet(path, params){
   const url = new URL(path, window.location.origin);
-  Object.keys(params).forEach(k => url.searchParams.append(k, params[k]));
+  if (params) Object.keys(params).forEach(k => url.searchParams.append(k, params[k]));
   const res = await fetch(url.toString());
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
   return res.json();
 }
 
 async function requestPost(path, body){
-  const res = await fetch(path, {
+  const url = new URL(path, window.location.origin).toString();
+  const res = await fetch(url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body)
   });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
   return res.json();
 }
 
@@ -22,6 +25,20 @@ document.getElementById('ilyas-get').addEventListener('click', async ()=>{
     document.getElementById('ilyas-result').textContent = JSON.stringify(data, null, 2);
   }catch(e){ document.getElementById('ilyas-result').textContent = String(e); }
 });
+
+// health check on load
+(async function(){
+  const el = document.getElementById('server-status');
+  if (!el) return;
+  try{
+    const r = await requestGet('/health');
+    el.textContent = 'Server: online';
+    el.style.color = '#0a0';
+  }catch(e){
+    el.textContent = 'Server: offline';
+    el.style.color = '#a00';
+  }
+})();
 
 document.getElementById('ilyas-post').addEventListener('click', async ()=>{
   const x = parseFloat(document.getElementById('ilyas-x').value);

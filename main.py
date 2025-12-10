@@ -33,6 +33,20 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+@app.middleware("http")
+async def log_requests(request, call_next):
+    # Простое логирование входящих запросов — поможет при отладке фронтенда
+    print(f"--> {request.method} {request.url}")
+    response = await call_next(request)
+    print(f"<-- {request.method} {request.url} {response.status_code}")
+    return response
+
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+
 # Serve static frontend files under `/static` and serve index at `/`
 app.mount("/static", StaticFiles(directory="frontend"), name="static")
 
