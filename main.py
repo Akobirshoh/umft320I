@@ -3,7 +3,8 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from funcInoyatov import inoyatov
 from functionilyas import ilyas
-from funckost import kostin
+from funckost import konstantin
+from project320 import func_320_soliyev as func_soliyev
 from pydantic import BaseModel
 from proekt320ShakirjanovXasan import p1
 
@@ -52,3 +53,28 @@ def get_p1(x: float, y: float):
 @app.post("/Shakirjanov")
 def post_p1(data: TwoNumbers):
     return {"result": p1(data.x,data.y)}
+
+@app.get("/konstantin")
+def get_konstantin(x: float, y: float):
+    return {"result": konstantin(x, y)}
+@app.post("/konstantin")
+def post_konstantin(data: TwoNumbers):
+    return {"result": konstantin(data.x, data.y)}
+
+# Backwards-compatible aliases: keep old `/konst` endpoints working
+@app.get("/konst")
+def get_kost_alias(x: float, y: float):
+    return {"result": konstantin(x, y)}
+
+@app.post("/konst")
+def post_kost_alias(data: TwoNumbers):
+    return {"result": konstantin(data.x, data.y)}
+
+@app.get("/soliyev")
+def get_soliyev(x: float, y: float):
+    return {"result": func_soliyev(x, y)}
+
+@app.post("/soliyev")
+def post_soliyev(data: TwoNumbers):
+    return {"result": func_soliyev(data.x, data.y)}
+
