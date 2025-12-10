@@ -8,6 +8,7 @@ from funckost import konstantin
 from project320 import func_320_soliyev as func_soliyev
 from pydantic import BaseModel
 from proekt320ShakirjanovXasan import p1
+import funcSoliyev as s
 
 
 
@@ -15,7 +16,15 @@ class TwoNumbers(BaseModel):
     x: float
     y: float
 
+<<<<<<< HEAD
 print("Hello")
+=======
+print(inoyatov(25,5))
+print(kostin(3,7))
+print(p1(2,3))
+print(inoyatov(25,5))
+print(ilyas(3,4))
+>>>>>>> 73b1d1b89f80657911a25fc934c57250b85e9c86
 
 app = FastAPI( title="UMFT320I", version="1.0.0",
 description="Платформа для покупки и продажи",
@@ -89,6 +98,7 @@ def get_p1(x: float, y: float):
 def post_p1(data: TwoNumbers):
     return {"result": p1(data.x,data.y)}
 
+<<<<<<< HEAD
 @app.get("/konstantin")
 def get_konstantin(x: float, y: float):
     return {"result": konstantin(x, y)}
@@ -113,3 +123,12 @@ def get_soliyev(x: float, y: float):
 def post_soliyev(data: TwoNumbers):
     return {"result": func_soliyev(data.x, data.y)}
 
+=======
+@app.get("/soliyev")
+def get_soliyev(x: float, y: float):
+    return {"result": s.func_soliyev(x, y)}
+
+@app.post("/soliyev")
+def post_soliyev(data: TwoNumbers):
+    return {"result": s.func_soliyev(data.x, data.y)}
+>>>>>>> 73b1d1b89f80657911a25fc934c57250b85e9c86
