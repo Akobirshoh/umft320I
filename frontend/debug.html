@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Debug - Check JS Loading</title>
+  <style>
+    body { font-family: monospace; margin: 20px; background: #f5f5f5; }
+    .log { background: white; border: 1px solid #ccc; padding: 10px; margin: 10px 0; }
+    .ok { color: green; }
+    .err { color: red; }
+  </style>
+</head>
+<body>
+  <h1>Debug: JS Loading & Event Listeners</h1>
+  <div id="log" class="log"></div>
+
+  <h2>Manual Test</h2>
+  <label>x: <input id="test-x" type="number" value="2"></label>
+  <label>y: <input id="test-y" type="number" value="3"></label>
+  <button id="test-btn">Test Shakirjanov</button>
+  <pre id="test-result"></pre>
+
+  <script>
+    const logDiv = document.getElementById('log');
+    
+    function log(msg, isError = false) {
+      const p = document.createElement('p');
+      p.textContent = msg;
+      p.className = isError ? 'err' : 'ok';
+      logDiv.appendChild(p);
+      console.log(msg);
+    }
+
+    // Check if elements exist
+    log('✓ Document loaded');
+    
+    const elementsToCheck = [
+      'ilyas-get', 'ilyas-post',
+      'ino-get', 'ino-post',
+      'kost-get', 'kost-post',
+      'shak-get', 'shak-post',
+      'sol-get', 'sol-post',
+      'server-status'
+    ];
+    
+    elementsToCheck.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        log(`✓ Found #${id}`);
+      } else {
+        log(`✗ Missing #${id}`, true);
+      }
+    });
+
+    // Test fetch directly
+    log('\nTesting fetch to /Shakirjanov:');
+    
+    document.getElementById('test-btn').addEventListener('click', async () => {
+      const x = parseFloat(document.getElementById('test-x').value);
+      const y = parseFloat(document.getElementById('test-y').value);
+      
+      try {
+        log(`\nFetching POST /Shakirjanov with x=${x}, y=${y}`);
+        const res = await fetch('/Shakirjanov', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ x, y })
+        });
+        log(`Response status: ${res.status}`);
+        const data = await res.json();
+        log(`Response data: ${JSON.stringify(data)}`);
+        document.getElementById('test-result').textContent = JSON.stringify(data, null, 2);
+      } catch (e) {
+        log(`Error: ${e.message}`, true);
+        document.getElementById('test-result').textContent = `Error: ${e}`;
+      }
+    });
+    
+    log('\n✓ Debug page ready');
+  </script>
+</body>
+</html>
