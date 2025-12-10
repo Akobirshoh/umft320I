@@ -15,7 +15,7 @@ class TwoNumbers(BaseModel):
     x: float
     y: float
 
-
+print("Hello")
 
 app = FastAPI( title="UMFT320I", version="1.0.0",
 description="Платформа для покупки и продажи",

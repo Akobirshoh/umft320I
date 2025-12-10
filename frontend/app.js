@@ -89,6 +89,8 @@ document.getElementById('kost-post').addEventListener('click', async ()=>{
 
 // Shakirjanov (p1)
 document.getElementById('shak-get').addEventListener('click', async ()=>{
+   console.log("yes");
+  
   const x = parseFloat(document.getElementById('shak-x').value);
   const y = parseFloat(document.getElementById('shak-y').value);
   try{
@@ -98,6 +100,8 @@ document.getElementById('shak-get').addEventListener('click', async ()=>{
 });
 
 document.getElementById('shak-post').addEventListener('click', async ()=>{
+   console.log("yes");
+  
   const x = parseFloat(document.getElementById('shak-x').value);
   const y = parseFloat(document.getElementById('shak-y').value);
   try{
@@ -106,8 +110,11 @@ document.getElementById('shak-post').addEventListener('click', async ()=>{
   }catch(e){ document.getElementById('shak-result').textContent = String(e); }
 });
 
+
 // Soliyev (project320)
 document.getElementById('sol-get').addEventListener('click', async ()=>{
+   console.log("yes");
+  
   const x = parseFloat(document.getElementById('sol-x').value);
   const y = parseFloat(document.getElementById('sol-y').value);
   try{
@@ -117,6 +124,8 @@ document.getElementById('sol-get').addEventListener('click', async ()=>{
 });
 
 document.getElementById('sol-post').addEventListener('click', async ()=>{
+  console.log("yes");
+  
   const x = parseFloat(document.getElementById('sol-x').value);
   const y = parseFloat(document.getElementById('sol-y').value);
   try{
