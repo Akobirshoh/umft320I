@@ -13,11 +13,7 @@ class TwoNumbers(BaseModel):
     x: float
     y: float
 
-print(inoyatov(25,5))
-print(konstantin(3,7))
-print(p1(2,3))
-print(inoyatov(25,5))
-print(ilyas(3,4))
+
 
 app = FastAPI( title="UMFT320I", version="1.0.0",
 description="Платформа для покупки и продажи",
