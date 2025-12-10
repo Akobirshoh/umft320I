@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
+from fastapi.middleware.cors import CORSMiddleware
 from funcInoyatov import inoyatov
 from functionilyas import ilyas
 from funckost import konstantin
@@ -21,6 +22,15 @@ description="Платформа для покупки и продажи",
 docs_url="/docs",
 redoc_url="/redoc",
 #debug=settings.DEBUG, 
+)
+
+# Enable CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # Serve static frontend files under `/static` and serve index at `/`
