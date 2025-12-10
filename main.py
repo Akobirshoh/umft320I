@@ -47,6 +47,17 @@ async def log_requests(request, call_next):
 def health():
     return {"status": "ok"}
 
+
+@app.middleware("http")
+async def add_no_cache_headers(request, call_next):
+    # Prevent browser caching of HTML and JS files
+    response = await call_next(request)
+    if request.url.path.endswith(('.html', '.js')):
+        response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
+        response.headers["Pragma"] = "no-cache"
+        response.headers["Expires"] = "0"
+    return response
+
 # Serve static frontend files under `/static` and serve index at `/`
 app.mount("/static", StaticFiles(directory="frontend"), name="static")
 
