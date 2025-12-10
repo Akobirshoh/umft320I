@@ -56,7 +56,7 @@ document.getElementById('kost-get').addEventListener('click', async ()=>{
   const x = parseFloat(document.getElementById('kost-x').value);
   const y = parseFloat(document.getElementById('kost-y').value);
   try{
-    const data = await requestGet('/konst', {x,y});
+    const data = await requestGet('/konstantin', {x,y});
     document.getElementById('kost-result').textContent = JSON.stringify(data, null, 2);
   }catch(e){ document.getElementById('kost-result').textContent = String(e); }
 });
@@ -65,7 +65,45 @@ document.getElementById('kost-post').addEventListener('click', async ()=>{
   const x = parseFloat(document.getElementById('kost-x').value);
   const y = parseFloat(document.getElementById('kost-y').value);
   try{
-    const data = await requestPost('/konst', {x,y});
+    const data = await requestPost('/konstantin', {x,y});
     document.getElementById('kost-result').textContent = JSON.stringify(data, null, 2);
   }catch(e){ document.getElementById('kost-result').textContent = String(e); }
+});
+
+// Shakirjanov (p1)
+document.getElementById('shak-get').addEventListener('click', async ()=>{
+  const x = parseFloat(document.getElementById('shak-x').value);
+  const y = parseFloat(document.getElementById('shak-y').value);
+  try{
+    const data = await requestGet('/Shakirjanov', {x,y});
+    document.getElementById('shak-result').textContent = JSON.stringify(data, null, 2);
+  }catch(e){ document.getElementById('shak-result').textContent = String(e); }
+});
+
+document.getElementById('shak-post').addEventListener('click', async ()=>{
+  const x = parseFloat(document.getElementById('shak-x').value);
+  const y = parseFloat(document.getElementById('shak-y').value);
+  try{
+    const data = await requestPost('/Shakirjanov', {x,y});
+    document.getElementById('shak-result').textContent = JSON.stringify(data, null, 2);
+  }catch(e){ document.getElementById('shak-result').textContent = String(e); }
+});
+
+// Soliyev (project320)
+document.getElementById('sol-get').addEventListener('click', async ()=>{
+  const x = parseFloat(document.getElementById('sol-x').value);
+  const y = parseFloat(document.getElementById('sol-y').value);
+  try{
+    const data = await requestGet('/soliyev', {x,y});
+    document.getElementById('sol-result').textContent = JSON.stringify(data, null, 2);
+  }catch(e){ document.getElementById('sol-result').textContent = String(e); }
+});
+
+document.getElementById('sol-post').addEventListener('click', async ()=>{
+  const x = parseFloat(document.getElementById('sol-x').value);
+  const y = parseFloat(document.getElementById('sol-y').value);
+  try{
+    const data = await requestPost('/soliyev', {x,y});
+    document.getElementById('sol-result').textContent = JSON.stringify(data, null, 2);
+  }catch(e){ document.getElementById('sol-result').textContent = String(e); }
 });
